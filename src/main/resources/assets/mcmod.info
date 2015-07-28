@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "Mengy007_KinetiCraft2",
+        "name": "KinetiCraft2",
+        "description": "Adds a kinetic way of generating and storing RF power.",
+        "version": "0.1",
+        "mcversion": "${mcversion}",
+        "url": "http://www.tech-mafia.com",
+        "updateUrl": "",
+        "authorList": [ "mengy007" ],
+        "credits": "Code & design by mengy007",
+        "requiredMods": [ "Forge" ],
+        "dependencies": [ "MinecraftForge,ThermalExpansion" ],
+        "useDependencyInformation": "true"
+    }
+]

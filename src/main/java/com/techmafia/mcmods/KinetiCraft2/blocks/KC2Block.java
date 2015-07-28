@@ -31,7 +31,7 @@ public class KC2Block extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        blockIcon = iconRegister.registerIcon(String.format("$s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+        blockIcon = iconRegister.registerIcon(Reference.MOD_NAME + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(":") + 1));
     }
 
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)

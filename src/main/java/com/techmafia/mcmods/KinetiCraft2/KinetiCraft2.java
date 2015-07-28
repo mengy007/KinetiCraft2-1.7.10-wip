@@ -1,6 +1,7 @@
 package com.techmafia.mcmods.KinetiCraft2;
 
 import com.techmafia.mcmods.KinetiCraft2.handlers.ConfigurationHandler;
+import com.techmafia.mcmods.KinetiCraft2.init.KinetiCraft2Blocks;
 import com.techmafia.mcmods.KinetiCraft2.init.KinetiCraft2Items;
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
@@ -22,6 +23,9 @@ public class KinetiCraft2
 
         /* Items */
         KinetiCraft2Items.init();
+
+        /* Blocks */
+        KinetiCraft2Blocks.init();
 
         LogHelper.info("Pre Init Complete!");
     }

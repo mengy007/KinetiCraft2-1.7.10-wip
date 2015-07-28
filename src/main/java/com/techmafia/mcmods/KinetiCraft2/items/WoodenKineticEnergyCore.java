@@ -10,6 +10,7 @@ public class WoodenKineticEnergyCore extends BaseKineticEnergyCore {
         this.setUnlocalizedName("woodenKineticEnergyCore");
 
         this.energyFromJumping      = 1;
+        this.energyFromMoving       = 1;
         this.energyFromUsing        = 4;
         this.overChargeBuffer       = 2;
         this.maxEnergy              = 1000;
