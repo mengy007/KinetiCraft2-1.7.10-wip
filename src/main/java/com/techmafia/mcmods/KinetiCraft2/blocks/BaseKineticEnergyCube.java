@@ -49,16 +49,6 @@ public class BaseKineticEnergyCube extends KC2Block {
         }
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIconFromDamageForRenderPass(int damage, int pass) {
-        if (pass == 0) {
-            return this.blockIcon;
-        } else {
-            return this.blockIcon;
-        }
-    }
-
     /**
      * Called when the block is placed in the world.
      */

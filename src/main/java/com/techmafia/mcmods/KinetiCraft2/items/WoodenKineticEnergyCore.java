@@ -1,5 +1,8 @@
 package com.techmafia.mcmods.KinetiCraft2.items;
 
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
 /**
  * Created by Meng on 7/27/2015.
  */
