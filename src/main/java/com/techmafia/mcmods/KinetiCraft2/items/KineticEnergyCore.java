@@ -35,11 +35,8 @@ public class KineticEnergyCore extends KC2Item {
     protected boolean hasMultipleIcons          = false;
     protected float damageFromOvercharge        = 0;
 
-    public KineticEnergyCore(String blockName, int energyFromJumping, int energyFromMoving, int energyFromUsing, int overChargeBuffer, int maxEnergy, int maxExtract, float damageFromOvercharge) {
-        super();
-
-        this.setMaxStackSize(64);
-        this.setUnlocalizedName(blockName);
+    public KineticEnergyCore(String itemName, int energyFromJumping, int energyFromMoving, int energyFromUsing, int overChargeBuffer, int maxEnergy, int maxExtract, float damageFromOvercharge) {
+        super(itemName, 64, true);
 
         this.energyFromJumping      = energyFromJumping;
         this.energyFromMoving       = energyFromMoving;

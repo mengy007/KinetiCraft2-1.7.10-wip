@@ -20,6 +20,13 @@ public class KC2Block extends BlockContainer {
         this.setCreativeTab(CreativeTabKC2.KC2_TAB);
     }
 
+    public KC2Block(String blockName, Material material) {
+        super(material);
+        this.setBlockName(blockName);
+        this.setHardness(0.2f);
+        this.setCreativeTab(CreativeTabKC2.KC2_TAB);
+    }
+
     @Override
     public String getUnlocalizedName()
     {
