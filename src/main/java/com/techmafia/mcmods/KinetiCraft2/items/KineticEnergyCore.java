@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by Meng on 7/27/2015.
  */
-public class BaseKineticEnergyCore extends KC2Item {
+public class KineticEnergyCore extends KC2Item {
     public int maxEnergy                        = 0;
     protected int energyFromJumping             = 0;
     protected int energyFromMoving              = 0;
@@ -35,9 +35,22 @@ public class BaseKineticEnergyCore extends KC2Item {
     protected boolean hasMultipleIcons          = false;
     protected float damageFromOvercharge        = 0;
 
-    public BaseKineticEnergyCore() {
+    public KineticEnergyCore(String blockName, int energyFromJumping, int energyFromMoving, int energyFromUsing, int overChargeBuffer, int maxEnergy, int maxExtract, float damageFromOvercharge) {
         super();
-        this.setMaxStackSize(1);
+
+        this.setMaxStackSize(64);
+        this.setUnlocalizedName(blockName);
+
+        this.energyFromJumping      = energyFromJumping;
+        this.energyFromMoving       = energyFromMoving;
+        this.energyFromUsing        = energyFromUsing;
+        this.overChargeBuffer       = overChargeBuffer;
+        this.maxEnergy              = maxEnergy;
+        this.maxExtract             = maxExtract;
+        this.damageFromOvercharge   = damageFromOvercharge;
+        this.hasMultipleIcons       = true;
+
+        this.setMaxDamage(this.maxEnergy);
     }
 
     public int getMaxExtract() { return this.maxExtract; }

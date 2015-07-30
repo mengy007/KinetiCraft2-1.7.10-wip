@@ -14,12 +14,16 @@ import net.minecraft.world.World;
 /**
  * Created by Meng on 7/27/2015.
  */
-public class BaseKineticEnergyCube extends KC2Block {
+public class KineticEnergyCube extends KC2Block {
     protected int maxCores = 0;
     protected IIcon frontIcon;
 
-    public BaseKineticEnergyCube(Material material) {
+    public KineticEnergyCube(String blockName, Material material, float blockHardness, int maxCores) {
         super(material);
+
+        this.setBlockName(blockName);
+        this.setHardness(blockHardness);
+        this.maxCores = maxCores;
     }
 
     /**

@@ -1,8 +1,9 @@
 package com.techmafia.mcmods.KinetiCraft2.init;
 
 import com.techmafia.mcmods.KinetiCraft2.blocks.KineticBlock;
-import com.techmafia.mcmods.KinetiCraft2.blocks.WoodenKineticEnergyCube;
+import com.techmafia.mcmods.KinetiCraft2.blocks.KineticEnergyCube;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -11,7 +12,7 @@ import net.minecraft.item.ItemStack;
  */
 public class KinetiCraft2Blocks {
     public static final KineticBlock kineticBlock = new KineticBlock();
-    public static final WoodenKineticEnergyCube woodenKineticEnergyCube = new WoodenKineticEnergyCube();
+    public static final KineticEnergyCube woodenKineticEnergyCube = new KineticEnergyCube("woodenKineticEnergyCube", Material.wood, 0.1f, 1);
 
     public static void init() {
         /* Register Blocks */
