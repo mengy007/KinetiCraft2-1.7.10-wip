@@ -85,12 +85,16 @@ public class KineticEnergyCube extends KC2Block {
     /**
      * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
      */
+    /*
     @Override
     public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
     {
         return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, metadata);
     }
+    */
 
+    /*
     @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPass() { return true; }
+    */
 }

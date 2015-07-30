@@ -33,30 +33,16 @@ public class KC2Block extends BlockContainer {
         blockIcon = iconRegister.registerIcon(Reference.MOD_NAME + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(":") + 1));
     }
 
+    /**
+     * Required override
+     **/
+    @Override
+    public TileEntity createNewTileEntity(World world, int metadata) {
+        return null;
+    }
+
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
-
-    @Override
-    public TileEntity createNewTileEntity(World world, int metadata) {	return null; }
-
-    /*
-    @Override
-    public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
-    {
-        super.breakBlock(world, x, y, z, par5, par6);
-    }
-    */
-
-    /**
-     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
-     */
-    /*
-    @Override
-    public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
-    {
-        return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, metadata);
-    }
-    */
 }
