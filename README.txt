@@ -10,3 +10,24 @@ Forge, Thermal Expansion
 Installation
 ============
 Copy/Move KinetiCraft jar file into your mods folder.
+
+Items
+=====
+. Wooden Kinetic Energy Core
+. Stone Kinetic Energy Core
+. Iron Kinetic Energy Core
+. Golden Kinetic Energy Core
+. Diamond Kinetic Energy Core
+. Ender Kinectic Energy Core
+
+Blocks
+======
+
+. Kinetic Energy Cube
+  . 4 cores
+. Hardened Kinetic Energy Cube
+  . 8 cores
+. Reinforced Kinetic Energy Cube
+  . 16 cores
+. Resonant Kinetic Energy Cube
+  . 32 cores
