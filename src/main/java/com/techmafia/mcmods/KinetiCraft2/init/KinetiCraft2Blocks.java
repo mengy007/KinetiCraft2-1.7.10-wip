@@ -17,10 +17,10 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
  */
 public class KinetiCraft2Blocks {
     public static final KineticBlock kineticBlock = new KineticBlock();
-    public static final KineticEnergyCube kineticEnergyCube = new KineticEnergyCube("kineticEnergyCube", Material.rock, 0.1f, 3);
-    public static final KineticEnergyCube hardenedKineticEnergyCube = new KineticEnergyCube("hardenedKineticEnergyCube", Material.rock, 0.2f, 6);
-    public static final KineticEnergyCube reinforcedKineticEnergyCube = new KineticEnergyCube("reinforcedKineticEnergyCube", Material.rock, 0.3f, 9);
-    public static final KineticEnergyCube resonantKineticEnergyCube = new KineticEnergyCube("resonantKineticEnergyCube", Material.rock, 0.5f, 15);
+    public static final KineticEnergyCube kineticEnergyCube = new KineticEnergyCube("kineticEnergyCube", Material.rock, 0.1f, 3, 1, 0);
+    public static final KineticEnergyCube hardenedKineticEnergyCube = new KineticEnergyCube("hardenedKineticEnergyCube", Material.rock, 0.2f, 3, 2, 1);
+    public static final KineticEnergyCube reinforcedKineticEnergyCube = new KineticEnergyCube("reinforcedKineticEnergyCube", Material.rock, 0.3f, 3, 3, 2);
+    public static final KineticEnergyCube resonantKineticEnergyCube = new KineticEnergyCube("resonantKineticEnergyCube", Material.rock, 0.5f, 3, 5, 3);
 
     public static void init() {
         /* Register Blocks */
