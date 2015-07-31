@@ -93,7 +93,7 @@ public class KineticEnergyCube extends KC2Block {
 
     @Override
     public TileEntity createNewTileEntity(World world, int metadata) {
-        return new KineticEnergyCubeTileEntity(this.maxCoreCols, this.maxCoreRows);
+        return new KineticEnergyCubeTileEntity();
     }
 
     @Override
