@@ -2,6 +2,7 @@ package com.techmafia.mcmods.KinetiCraft2.handlers;
 
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.containers.KineticEnergyCubeContainer;
+import com.techmafia.mcmods.KinetiCraft2.gui.GuiKineticEnergyCube;
 import com.techmafia.mcmods.KinetiCraft2.gui.KC2Gui;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
@@ -26,7 +27,7 @@ public class KC2GuiHandler implements IGuiHandler {
             if (tileEntity instanceof KineticEnergyCubeTileEntity) {
                 switch (ID) {
                     case 0:
-                        return new KineticEnergyCubeContainer(entityPlayer.inventory, (KineticEnergyCubeTileEntity) tileEntity, ((KineticEnergyCubeTileEntity) tileEntity).slotCols, ((KineticEnergyCubeTileEntity) tileEntity).slotRows);
+                        return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer);
                 }
             }
         } else {
@@ -43,7 +44,7 @@ public class KC2GuiHandler implements IGuiHandler {
             if (tileEntity instanceof KineticEnergyCubeTileEntity) {
                 switch (ID) {
                     case 0:
-                        return new KC2Gui(new KineticEnergyCubeContainer(entityPlayer.inventory, (KineticEnergyCubeTileEntity) tileEntity, ((KineticEnergyCubeTileEntity) tileEntity).slotCols, ((KineticEnergyCubeTileEntity) tileEntity).slotRows), "Kinetic Energy Cube");
+                        return new GuiKineticEnergyCube(new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer), (KineticEnergyCubeTileEntity) tileEntity);
                 }
             }
         } else {

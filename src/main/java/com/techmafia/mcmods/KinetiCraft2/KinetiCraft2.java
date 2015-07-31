@@ -5,6 +5,7 @@ import com.techmafia.mcmods.KinetiCraft2.handlers.KC2GuiHandler;
 import com.techmafia.mcmods.KinetiCraft2.init.KinectiCraft2TileEntities;
 import com.techmafia.mcmods.KinetiCraft2.init.KinetiCraft2Blocks;
 import com.techmafia.mcmods.KinetiCraft2.init.KinetiCraft2Items;
+import com.techmafia.mcmods.KinetiCraft2.net.CommonPacketHandler;
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -21,6 +22,8 @@ public class KinetiCraft2
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
+        CommonPacketHandler.init();
+
         /* Config */
         ConfigurationHandler.init(preInitializationEvent.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
