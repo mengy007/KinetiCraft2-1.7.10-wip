@@ -14,14 +14,14 @@ public interface IKC2GuiEntity {
      * @param player The player opening the screen
      * @return A GUIScreen to show
      */
-    //public GuiScreen getGUI(EntityPlayer player);
+    public GuiScreen getGUI(EntityPlayer player);
 
     /**
      * Retrieve the Container object for this block.
      * @param player The player opening the GUI/container.
      * @return A Container for use by the server/
      */
-    //public Container getContainer(EntityPlayer player);
+    public Container getContainer(EntityPlayer player);
 
     /**
      * Call when a player should begin receiving UI updates

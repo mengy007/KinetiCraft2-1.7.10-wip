@@ -3,7 +3,6 @@ package com.techmafia.mcmods.KinetiCraft2.handlers;
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.containers.KineticEnergyCubeContainer;
 import com.techmafia.mcmods.KinetiCraft2.gui.GuiKineticEnergyCube;
-import com.techmafia.mcmods.KinetiCraft2.gui.KC2Gui;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.common.network.IGuiHandler;

@@ -2,11 +2,13 @@ package com.techmafia.mcmods.KinetiCraft2.tileentities.base;
 
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import net.minecraft.block.Block;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 /**
@@ -25,6 +27,16 @@ public abstract class TileEntityInventory extends KC2TileEntityBase implements I
         for(int i = 0; i < invSlotExposures.length; i++) {
             // Set up a cached array with all possible exposed inventory slots, so we don't have to alloc at runtime
             invSlotExposures[i][0] = i;
+        }
+    }
+
+    public void dropInventory(World world, int x, int y, int z) {
+        if (!world.isRemote) {
+            for (ItemStack itemStack : _inventories) {
+                if (itemStack != null) {
+                    world.spawnEntityInWorld(new EntityItem(world, x, y, z, itemStack.copy()));
+                }
+            }
         }
     }
 

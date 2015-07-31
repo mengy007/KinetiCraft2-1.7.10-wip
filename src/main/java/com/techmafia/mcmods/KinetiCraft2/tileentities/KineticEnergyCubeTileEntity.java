@@ -2,7 +2,6 @@ package com.techmafia.mcmods.KinetiCraft2.tileentities;
 
 import com.techmafia.mcmods.KinetiCraft2.containers.KineticEnergyCubeContainer;
 import com.techmafia.mcmods.KinetiCraft2.gui.GuiKineticEnergyCube;
-import com.techmafia.mcmods.KinetiCraft2.gui.KC2Gui;
 import com.techmafia.mcmods.KinetiCraft2.items.KineticEnergyCore;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.base.TileEntityInventory;
 import cpw.mods.fml.relauncher.Side;
@@ -39,12 +38,12 @@ public class KineticEnergyCubeTileEntity extends TileEntityInventory {
 
     // IKC2GuiEntity
     @SideOnly(Side.CLIENT)
-    //@Override
+    @Override
     public GuiScreen getGUI(EntityPlayer player) {
         return new GuiKineticEnergyCube(getContainer(player), this);
     }
 
-    //@Override
+    @Override
     public Container getContainer(EntityPlayer player) {
         return new KineticEnergyCubeContainer(this, player);
     }

@@ -5,9 +5,11 @@ import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -103,5 +105,17 @@ public class KineticEnergyCube extends KC2Block {
         entityPlayer.openGui(KinetiCraft2.instance, this.guiId, world, x, y, z);
 
         return true;
+    }
+
+    @Override
+    public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
+
+        // Drop inventory
+        if (tileEntity != null && tileEntity instanceof KineticEnergyCubeTileEntity) {
+            ((KineticEnergyCubeTileEntity)tileEntity).dropInventory(world, x, y, z);
+            world.spawnEntityInWorld(new EntityItem(world, x, y, z, new ItemStack(tileEntity.blockType, 1)));
+            world.removeTileEntity(x, y, z);
+        }
     }
 }

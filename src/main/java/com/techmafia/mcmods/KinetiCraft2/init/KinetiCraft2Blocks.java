@@ -2,9 +2,12 @@ package com.techmafia.mcmods.KinetiCraft2.init;
 
 import cofh.thermalfoundation.item.TFItems;
 import com.techmafia.mcmods.KinetiCraft2.blocks.KC2Block;
+import com.techmafia.mcmods.KinetiCraft2.blocks.KC2EnergyCube;
 import com.techmafia.mcmods.KinetiCraft2.blocks.KineticBlock;
 import com.techmafia.mcmods.KinetiCraft2.blocks.KineticEnergyCube;
+import com.techmafia.mcmods.KinetiCraft2.items.ItemBlockKC2;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -22,6 +25,8 @@ public class KinetiCraft2Blocks {
     public static final KineticEnergyCube reinforcedKineticEnergyCube = new KineticEnergyCube("reinforcedKineticEnergyCube", Material.rock, 0.3f, 3, 3, 2);
     public static final KineticEnergyCube resonantKineticEnergyCube = new KineticEnergyCube("resonantKineticEnergyCube", Material.rock, 0.5f, 3, 5, 3);
 
+    //public static Block testBlock = new KC2EnergyCube(Material.rock);
+
     public static void init() {
         /* Register Blocks */
         GameRegistry.registerBlock(kineticBlock, "kineticBlock");
@@ -29,6 +34,8 @@ public class KinetiCraft2Blocks {
         GameRegistry.registerBlock(hardenedKineticEnergyCube, "hardenedKineticEnergyCube");
         GameRegistry.registerBlock(reinforcedKineticEnergyCube, "reinforcedKineticEnergyCube");
         GameRegistry.registerBlock(resonantKineticEnergyCube, "resonantKineticEnergyCube");
+
+        //GameRegistry.registerBlock(testBlock, ItemBlockKC2.class, "testBlock");
 
         /* Crafting Recipes */
         GameRegistry.addShapelessRecipe(new ItemStack(kineticBlock, 2), new Object[]{
