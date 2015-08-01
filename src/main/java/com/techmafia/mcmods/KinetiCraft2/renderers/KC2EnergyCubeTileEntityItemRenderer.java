@@ -30,6 +30,12 @@ public class KC2EnergyCubeTileEntityItemRenderer implements IItemRenderer {
         return true;
     }
 
+    /**
+     * Looks like this renders the item in hand. seems to work well.
+     * @param type
+     * @param item
+     * @param data
+     */
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if (type == IItemRenderer.ItemRenderType.ENTITY)

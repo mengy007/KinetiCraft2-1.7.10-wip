@@ -15,8 +15,9 @@ import org.lwjgl.opengl.GL11;
  * Created by Meng on 7/31/2015.
  */
 public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
+    private ResourceLocation textureFull = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCube.png");
     private ResourceLocation textureFrame = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeFrame.png");
-    private ResourceLocation textureSide = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCube.png");
+    private ResourceLocation textureSide = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeSide.png");
     private ResourceLocation textureBlack = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/black.png");
     private ResourceLocation textureGray = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/gray.png");
     private ResourceLocation[] textureStatus = new ResourceLocation[4];
@@ -38,6 +39,9 @@ public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double translationX, double translationY, double translationZ, float f) {
+        Tessellator tes = Tessellator.instance;
+        tes.setNormal(0.0F, 1.0F, 0.0F);
+
         GL11.glTranslated(translationX, translationY, translationZ);
         renderFrame();
         renderSides(tileEntity);
@@ -102,11 +106,14 @@ public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
 
     public void renderSidesPartial() {
         Tessellator tes = Tessellator.instance;
+
         tes.startDrawingQuads();
-        tes.addVertexWithUV(-8 * pixel, -8 * pixel, -0.5+(2*pixel), 0, 1);
-        tes.addVertexWithUV(-8 * pixel, 8 * pixel, -0.5+(2*pixel), 0, 0);
-        tes.addVertexWithUV(8 * pixel, 8 * pixel, -0.5+(2*pixel), 1, 0);
-        tes.addVertexWithUV(8 * pixel, -8 * pixel, -0.5+(2*pixel), 1, 1);
+        {
+            tes.addVertexWithUV(-8 * pixel, -8 * pixel, -0.5 + (2 * pixel), 0, 1);
+            tes.addVertexWithUV(-8 * pixel, 8 * pixel, -0.5 + (2 * pixel), 0, 0);
+            tes.addVertexWithUV(8 * pixel, 8 * pixel, -0.5 + (2 * pixel), 1, 0);
+            tes.addVertexWithUV(8 * pixel, -8 * pixel, -0.5 + (2 * pixel), 1, 1);
+        }
         tes.draw();
     }
 
