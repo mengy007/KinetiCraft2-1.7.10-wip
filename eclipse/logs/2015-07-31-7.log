@@ -1,0 +1,95 @@
+[23:31:36] [main/INFO]: Logging in with username & password
+[23:31:44] [main/INFO]: Setting user: mengy007
+[23:31:48] [Client thread/INFO]: LWJGL Version: 2.9.1
+[23:31:50] [Twitch authenticator/ERROR]: [Broadcast controller] TTV_EC_INTEL_FAILED_SESSION_INIT
+[23:31:58] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFil[23:32:02] [Server thread/INFO]: Loading properties
+[23:32:02] [Server thread/INFO]: Default game type: SURVIVAL
+[23:32:02] [Server thread/INFO]: Generating keypair
+[23:32:02] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:32:04] [Server thread/INFO]: Preparing level "world"
+[23:32:04] [Server thread/INFO]: Preparing start region for level 0
+[23:32:05] [Server thread/INFO]: Done (1.693s)! For help, type "help" or "?"
+[23:32:13] [User Authenticator #1/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:32:14] [Server thread/INFO]: mengy007[/127.0.0.1:34129] logged in with entity id 339 at (-125.50930874770394, 67.0, 127.17787309615913)
+[23:32:14] [Server thread/INFO]: mengy007 joined the game
+[23:32:21] [Server thread/INFO]: mengy007 lost connection: TranslatableComponent{key='disconnect.genericReason', args=[Internal Exception: java.io.IOException: An existing connection was forcibly closed by the remote host], siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[23:32:21] [Server thread/INFO]: mengy007 left the game
+[23:34:06] [User Authenticator #2/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:34:07] [Server thread/INFO]: mengy007[/127.0.0.1:34230] logged in with entity id 340 at (-125.50930874770394, 67.0, 127.17787309615913)
+[23:34:07] [Server thread/INFO]: mengy007 joined the game
+[23:34:14] [Server thread/INFO]: mengy007 lost connection: TranslatableComponent{key='disconnect.genericReason', args=[Internal Exception: java.io.IOException: An existing connection was forcibly closed by the remote host], siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[23:34:14] [Server thread/INFO]: mengy007 left the game
+[23:36:09] [User Authenticator #3/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:36:10] [Server thread/INFO]: mengy007[/127.0.0.1:34347] logged in with entity id 419 at (-125.50930874770394, 67.0, 127.17787309615913)
+[23:36:10] [Server thread/INFO]: mengy007 joined the game
+[23:36:43] [Server thread/INFO]: [mengy007: Given [Kinetic Energy Cube] * 64 to mengy007]
+[23:37:48] [Server thread/INFO]: mengy007 lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[23:37:48] [Server thread/INFO]: mengy007 left the game
+[23:37:51] [User Authenticator #4/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:37:51] [Server thread/INFO]: mengy007[/127.0.0.1:34372] logged in with entity id 1833 at (-124.56131618985154, 67.0, 127.55263018566927)
+[23:37:51] [Server thread/INFO]: mengy007 joined the game
+[23:38:11] [Server thread/INFO]: [mengy007: Given [Gold Kinetic Energy Core] * 1 to mengy007]
+[23:38:12] [Server thread/INFO]: [mengy007: Given [Wooden Kinetic Energy Core] * 1 to mengy007]
+[23:38:19] [Server thread/INFO]: [mengy007: Given [Stone Kinetic Energy Core] * 1 to mengy007]
+[23:38:43] [Server thread/INFO]: mengy007 lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[23:38:43] [Server thread/INFO]: mengy007 left the game
+[23:38:46] [User Authenticator #5/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:38:46] [Server thread/INFO]: mengy007[/127.0.0.1:34390] logged in with entity id 2525 at (-124.54571116254237, 67.0, 127.55558883563803)
+[23:38:46] [Server thread/INFO]: mengy007 joined the game
+[23:39:51] [Server thread/INFO]: mengy007 lost connection: TextComponent{text='Disconnected', siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[23:39:51] [Server thread/INFO]: mengy007 left the game
+[23:39:53] [User Authenticator #6/INFO]: UUID of player mengy007 is 0dd68c90-2234-4406-986e-3b375257fec0
+[23:39:53] [Server thread/INFO]: mengy007[/127.0.0.1:34423] logged in with entity id 3503 at (-124.54571116254237, 67.0, 127.55558883563803)
+[23:39:53] [Server thread/INFO]: mengy007 joined the game
+[23:55:52] [Server thread/INFO]: [mengy007: Given [Gold Kinetic Energy Core] * 1 to mengy007]
+[23:58:17] [Server thread/INFO]: [mengy007: Given [Stone Kinetic Energy Core] * 1 to mengy007]
+ent thread/FATAL]: Reported exception thrown!
+net.minecraft.util.ReportedException: Rendering Block Entity
+	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntityAt(TileEntityRendererDispatcher.java:148) ~[TileEntityRendererDispatcher.class:?]
+	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntity(TileEntityRendererDispatcher.java:126) ~[TileEntityRendererDispatcher.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:539) ~[RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) ~[EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) ~[EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1067) ~[Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:962) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_45]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.11.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.11.jar:?]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source) [start/:?]
+	at GradleStart.main(Unknown Source) [start/:?]
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 4
+	at com.techmafia.mcmods.KinetiCraft2.renderers.KC2EnergyCubeTileEntityRenderer.renderFront(KC2EnergyCubeTileEntityRenderer.java:110) ~[KC2EnergyCubeTileEntityRenderer.class:?]
+	at com.techmafia.mcmods.KinetiCraft2.renderers.KC2EnergyCubeTileEntityRenderer.renderTileEntityAt(KC2EnergyCubeTileEntityRenderer.java:43) ~[KC2EnergyCubeTileEntityRenderer.class:?]
+	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntityAt(TileEntityRendererDispatcher.java:141) ~[TileEntityRendererDispatcher.class:?]
+	... 15 more
+[23:35:35] [main/INFO]: Logging in with username & password
+[23:35:42] [main/INFO]: Setting user: mengy007
+[23:35:46] [Client thread/INFO]: LWJGL Version: 2.9.1
+[23:35:47] [Twitch authenticator/ERROR]: [Broadcast controller] TTV_EC_INTEL_FAILED_SESSION_INIT
+[23:35:53] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:KinetiCraft2, FMLFileResourcePack:CoFH Core, FMLFileResourcePack:Thermal Foundation
+[23:35:54] [Sound Library Loader/INFO]: Sound engine started
+[23:35:57] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[23:35:57] [Client thread/INFO]: Created: 512x256 textures/items-atlas
+[23:35:58] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:KinetiCraft2, FMLFileResourcePack:CoFH Core, FMLFileResourcePack:Thermal Foundation
+[23:35:59] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[23:35:59] [Client thread/INFO]: Created: 512x256 textures/items-atlas
+[23:36:00] [Sound Library Loader/INFO]: Sound engine started
+[23:36:08] [Client thread/INFO]: Connecting to localhost, 25565
+[23:36:38] [Client thread/INFO]: [CHAT] You are now playing creative+
+[23:36:39] [Client thread/INFO]: [CHAT] You are now playing adventure
+[23:36:43] [Client thread/INFO]: [CHAT] Given [Kinetic Energy Cube] * 64 to mengy007
+[23:36:58] [Client thread/INFO]: [CHAT] You are now playing survival
+[23:36:59] [Client thread/INFO]: [CHAT] You are now playing creative
+[23:37:50] [Client thread/INFO]: Connecting to localhost, 25565
+[23:38:11] [Client thread/INFO]: [CHAT] Given [Gold Kinetic Energy Core] * 1 to mengy007
+[23:38:12] [Client thread/INFO]: [CHAT] Given [Wooden Kinetic Energy Core] * 1 to mengy007
+[23:38:19] [Client thread/INFO]: [CHAT] Given [Stone Kinetic Energy Core] * 1 to mengy007
+[23:38:45] [Client thread/INFO]: Connecting to localhost, 25565
+[23:39:52] [Client thread/INFO]: Connecting to localhost, 25565
+[23:55:52] [Client thread/INFO]: [CHAT] Given [Gold Kinetic Energy Core] * 1 to mengy007
+[23:58:17] [Client thread/INFO]: [CHAT] Given [Stone Kinetic Energy Core] * 1 to mengy007
+[00:00:20] [Server thread/INFO]: [mengy007: Given [Iron Kinetic Energy Core] * 1 to mengy007]

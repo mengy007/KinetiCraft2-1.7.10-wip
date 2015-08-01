@@ -26,6 +26,6 @@ public class ClientProxy extends CommonProxy {
         TileEntitySpecialRenderer energyCubeSpecialRenderer = new KC2EnergyCubeTileEntityRenderer();
 
         ClientRegistry.bindTileEntitySpecialRenderer(KineticEnergyCubeTileEntity.class, energyCubeSpecialRenderer);
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(KinetiCraft2Blocks.kineticEnergyCube), new KC2EnergyCubeTileEntityItemRenderer(energyCubeSpecialRenderer, new KineticEnergyCubeTileEntity()));
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(KinetiCraft2Blocks.kineticEnergyCube), new KC2EnergyCubeTileEntityItemRenderer(energyCubeSpecialRenderer, new KineticEnergyCubeTileEntity()));
     }
 }

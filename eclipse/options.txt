@@ -87,7 +87,7 @@ key_key.hotbar.8:9
 key_key.hotbar.9:10
 key_key.cofh.empower:47
 key_key.cofh.multimode:46
-soundCategory_master:0.49006623
+soundCategory_master:0.0
 soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0

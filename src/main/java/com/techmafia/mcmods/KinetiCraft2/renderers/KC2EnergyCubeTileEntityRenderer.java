@@ -15,8 +15,9 @@ import org.lwjgl.opengl.GL11;
  * Created by Meng on 7/31/2015.
  */
 public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
+    private ResourceLocation textureFrame = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeFrame.png");
     private ResourceLocation textureSide = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCube.png");
-    private ResourceLocation textureFront = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeFront.png");
+    private ResourceLocation textureBlack = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/black.png");
     private ResourceLocation textureGray = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/gray.png");
     private ResourceLocation[] textureStatus = new ResourceLocation[4];
     private float pixel = 1f/16f;
@@ -44,33 +45,104 @@ public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
         GL11.glTranslated(-translationX, -translationY, -translationZ);
     }
 
+    public void renderFrameFrontBack() {
+        Tessellator tes = Tessellator.instance;
+
+        tes.startDrawingQuads();
+        // FRONT
+        tes.addVertexWithUV(-8 * pixel, -8 * pixel, -0.5, 0, 1);
+        tes.addVertexWithUV(-8 * pixel, 8 * pixel, -0.5, 0, 0);
+        tes.addVertexWithUV(8 * pixel, 8 * pixel, -0.5, 1, 0);
+        tes.addVertexWithUV(8 * pixel, -8 * pixel, -0.5, 1, 1);
+
+        // BACK
+        tes.addVertexWithUV(-8 * pixel, -8 * pixel, 0.5 - (2 * pixel), 0, 1);
+        tes.addVertexWithUV(-8 * pixel, 8 * pixel, 0.5 - (2 * pixel), 0, 0);
+        tes.addVertexWithUV(8 * pixel, 8 * pixel, 0.5 - (2 * pixel), 1, 0);
+        tes.addVertexWithUV(8 * pixel, -8 * pixel, 0.5 - (2 * pixel), 1, 1);
+
+        tes.draw();
+    }
+
     public void renderFrame() {
         Tessellator tes = Tessellator.instance;
-        this.bindTexture(textureSide);
-        tes.startDrawingQuads();
+
+        // translate to middle
+        GL11.glTranslatef(0.5f, 0.5f, 0.5f);
+
+        this.bindTexture(textureFrame);
         {
-            // north face, full top, full bottom, sides
+            // NORTH
+            renderFrameFrontBack();
+            GL11.glRotatef(-90, 0, 1, 0);
+            // EAST
+            renderFrameFrontBack();
+            GL11.glRotatef(-90, 0, 1, 0);
+            // SOUTH
+            renderFrameFrontBack();
+            GL11.glRotatef(-90, 0, 1, 0);
+            // WEST
+            renderFrameFrontBack();
+            GL11.glRotatef(270, 0, 1, 0);
 
-            // NORTH TOP FRONT
-            /*
-            tes.addVertexWithUV(0, 1-(pixel*2), 0, 0, pixel*2);
-            tes.addVertexWithUV(0, 1, 0, 0, 0);
-            tes.addVertexWithUV(1, 1, 0, 1, 0);
-            tes.addVertexWithUV(1, 1-(pixel*2), 0, 1, pixel*2);
-
-            // NORTH BOTTOM FRONT
-            tes.addVertexWithUV(0, 0, 0, 0, 1);
-            tes.addVertexWithUV(0, pixel*2, 0, 0, 1-(pixel*2));
-            tes.addVertexWithUV(1, pixel*2, 0, 1, 1-(pixel*2));
-            tes.addVertexWithUV(1, 0, 0, 1, 1);
-            */
-
+            // TOP
+            GL11.glRotatef(-90, 1, 0, 0);
+            renderFrameFrontBack();
+            // DRAW BOTTOM
+            GL11.glRotatef(180, 1, 0, 0);
+            renderFrameFrontBack();
+            // Reset rotation
+            GL11.glRotatef(-180, 1, 0, 0);
+            GL11.glRotatef(90, 1, 0, 0);
         }
+
+        // undo translation
+        GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
+    }
+
+    public void renderSidesPartial() {
+        Tessellator tes = Tessellator.instance;
+        tes.startDrawingQuads();
+        tes.addVertexWithUV(-8 * pixel, -8 * pixel, -0.5+(2*pixel), 0, 1);
+        tes.addVertexWithUV(-8 * pixel, 8 * pixel, -0.5+(2*pixel), 0, 0);
+        tes.addVertexWithUV(8 * pixel, 8 * pixel, -0.5+(2*pixel), 1, 0);
+        tes.addVertexWithUV(8 * pixel, -8 * pixel, -0.5+(2*pixel), 1, 1);
         tes.draw();
     }
 
     public void renderSides(TileEntity tileEntity) {
+        Tessellator tes = Tessellator.instance;
 
+        this.bindTexture(textureSide);
+
+        GL11.glTranslatef(0.5f, 0.5f, 0.5f);
+
+        // draw all sides
+        // NORTH
+        renderSidesPartial();
+        GL11.glRotatef(-90, 0, 1, 0);
+        // EAST
+        renderSidesPartial();
+        GL11.glRotatef(-90, 0, 1, 0);
+        // SOUTH
+        renderSidesPartial();
+        GL11.glRotatef(-90, 0, 1, 0);
+        // WEST
+        renderSidesPartial();
+        GL11.glRotatef(270, 0, 1, 0);
+
+        // TOP
+        GL11.glRotatef(-90, 1, 0, 0);
+        renderSidesPartial();
+        // DRAW BOTTOM
+        GL11.glRotatef(180, 1, 0, 0);
+        renderSidesPartial();
+        // Reset rotation
+        GL11.glRotatef(-180, 1, 0, 0);
+        GL11.glRotatef(90, 1, 0, 0);
+
+        // undo translate
+        GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
     }
 
     public void renderFront(TileEntity tileEntity) {
@@ -90,13 +162,24 @@ public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
 
         for (int i = 0; i < ((KineticEnergyCubeTileEntity)tileEntity).getSizeInventory(); i++) {
             ItemStack itemStack = ((KineticEnergyCubeTileEntity)tileEntity).getStackInSlot(i);
+            float xOffset = ((i)*3*pixel) - 4.5f*((i/3)*2*pixel);
+            float yOffset = (i/3)*2*pixel;
+
+            // Draw slot no matter what
+            this.bindTexture(textureBlack);
+            tes.startDrawingQuads();
+            {
+                tes.addVertexWithUV(2*pixel-xOffset, 4*pixel-yOffset, -0.501+(2*pixel), 0, 1);
+                tes.addVertexWithUV(2*pixel-xOffset, 5*pixel-yOffset, -0.501+(2*pixel), 0, 0);
+                tes.addVertexWithUV(4*pixel-xOffset, 5*pixel-yOffset, -0.501+(2*pixel), 1, 0);
+                tes.addVertexWithUV(4*pixel-xOffset, 4*pixel-yOffset, -0.501+(2*pixel), 1, 1);
+            }
+            tes.draw();
 
             if (itemStack != null) {
                 int energyStored = KineticEnergyCore.getEnergyStored(itemStack);
                 int maxEnergy = ((KineticEnergyCore)itemStack.getItem()).maxEnergy;
                 int iconIndex = energyStored/(maxEnergy/4);
-                float xOffset = ((i)*3*pixel) - 4.5f*((i/3)*2*pixel);
-                float yOffset = (i/3)*2*pixel;
 
                 iconIndex = iconIndex > 3 ? 3 : iconIndex;
                 iconIndex = iconIndex < 0 ? 0 : iconIndex;
@@ -105,20 +188,20 @@ public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
                 this.bindTexture(this.textureGray);
                 tes.startDrawingQuads();
                 {
-                    tes.addVertexWithUV(2*pixel-xOffset, 4*pixel-yOffset, -0.501, 0, 1);
-                    tes.addVertexWithUV(2*pixel-xOffset, 5*pixel-yOffset, -0.501, 0, 0);
-                    tes.addVertexWithUV(4*pixel-xOffset, 5*pixel-yOffset, -0.501, 1, 0);
-                    tes.addVertexWithUV(4*pixel-xOffset, 4*pixel-yOffset, -0.501, 1, 1);
+                    tes.addVertexWithUV(2*pixel-xOffset, 4*pixel-yOffset, -0.501+(2*pixel), 0, 1);
+                    tes.addVertexWithUV(2*pixel-xOffset, 5*pixel-yOffset, -0.501+(2*pixel), 0, 0);
+                    tes.addVertexWithUV(4*pixel-xOffset, 5*pixel-yOffset, -0.501+(2*pixel), 1, 0);
+                    tes.addVertexWithUV(4*pixel-xOffset, 4*pixel-yOffset, -0.501+(2*pixel), 1, 1);
                 }
                 tes.draw();
 
                 this.bindTexture(this.textureStatus[iconIndex]);
                 tes.startDrawingQuads();
                 {
-                    tes.addVertexWithUV(2.25*pixel-xOffset, 4.25*pixel-yOffset, -0.502, 0, 1);
-                    tes.addVertexWithUV(2.25*pixel-xOffset, 4.75*pixel-yOffset, -0.502, 0, 0);
-                    tes.addVertexWithUV(3*pixel-xOffset, 4.75*pixel-yOffset, -0.502, 1, 0);
-                    tes.addVertexWithUV(3*pixel-xOffset, 4.25*pixel-yOffset, -0.502, 1, 1);
+                    tes.addVertexWithUV(2.25*pixel-xOffset, 4.25*pixel-yOffset, -0.502+(2*pixel), 0, 1);
+                    tes.addVertexWithUV(2.25*pixel-xOffset, 4.75*pixel-yOffset, -0.502+(2*pixel), 0, 0);
+                    tes.addVertexWithUV(3*pixel-xOffset, 4.75*pixel-yOffset, -0.502+(2*pixel), 1, 0);
+                    tes.addVertexWithUV(3*pixel-xOffset, 4.25*pixel-yOffset, -0.502+(2*pixel), 1, 1);
                 }
 
                 tes.draw();

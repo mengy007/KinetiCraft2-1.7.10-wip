@@ -3,7 +3,6 @@ package com.techmafia.mcmods.KinetiCraft2.blocks;
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
-import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -17,7 +16,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Created by Meng on 7/27/2015.
@@ -40,7 +38,7 @@ public class KineticEnergyCube extends KC2Block {
     }
 
     public int getRenderType() {
-        return 0;
+        return -1;
     }
 
     public boolean isOpaqueCube() {
