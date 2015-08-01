@@ -19,6 +19,10 @@ public abstract class TileEntityInventory extends KC2TileEntityBase implements I
     protected ItemStack[] _inventories;
     protected int[][] invSlotExposures;
 
+    // Direction
+    // 2, 5, 3, 4
+    protected int frontFace; // 0:NORTH, 1:EAST, 2:SOUTH, 3:WEST
+
     public TileEntityInventory() {
         super();
 
@@ -28,6 +32,14 @@ public abstract class TileEntityInventory extends KC2TileEntityBase implements I
             // Set up a cached array with all possible exposed inventory slots, so we don't have to alloc at runtime
             invSlotExposures[i][0] = i;
         }
+    }
+
+    public void setFrontFace(int dir) {
+        frontFace = dir;
+    }
+
+    public int getFrontFace() {
+        return frontFace;
     }
 
     public void dropInventory(World world, int x, int y, int z) {
@@ -69,6 +81,11 @@ public abstract class TileEntityInventory extends KC2TileEntityBase implements I
                 }
             }
         }
+
+        // Front face
+        if(tag.hasKey("FrontFace")) {
+            frontFace = tag.getInteger("FrontFace");
+        }
     }
 
     @Override
@@ -89,7 +106,34 @@ public abstract class TileEntityInventory extends KC2TileEntityBase implements I
         if(tagList.tagCount() > 0) {
             tag.setTag("Items", tagList);
         }
+
+        // Front Face
+        tag.setInteger("FrontFace", frontFace);
     }
+
+
+
+    /**
+     * Fill this NBT Tag Compound with your custom entity data.
+     * @param updateTag The tag to which your data should be written
+     */
+    @Override
+    protected void onSendUpdate(NBTTagCompound updateTag) {
+        updateTag.setInteger("FrontFace", frontFace);
+    }
+
+    /**
+     * Read your custom update data from this NBT Tag Compound.
+     * @param updateTag The tag which should contain your data.
+     */
+    @Override
+    public void onReceiveUpdate(NBTTagCompound updateTag) {
+        if (updateTag.hasKey("FrontFace")) {
+            frontFace = updateTag.getInteger("FrontFace");
+        }
+    }
+
+
 
     @Override
     public boolean isActive() {

@@ -32,14 +32,6 @@ public abstract class KC2GuiBase extends GuiContainer {
 
         this.mc.renderEngine.bindTexture(getGuiBackground());
         this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-
-        /*
-        this.mc.getTextureManager().bindTexture(getGuiBackground());
-        int k = (this.width - this.xSize) / 2;
-        int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, 6 * 18 + 17);
-        this.drawTexturedModalRect(k, l + 6 * 18 + 17, 0, 125, this.xSize, 96);
-        */
     }
 
     public abstract ResourceLocation getGuiBackground();

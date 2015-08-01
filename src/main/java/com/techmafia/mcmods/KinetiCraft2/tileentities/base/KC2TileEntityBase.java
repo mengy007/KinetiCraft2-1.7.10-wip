@@ -4,6 +4,7 @@ import cofh.core.block.TileCoFHBase;
 import com.techmafia.mcmods.KinetiCraft2.gui.IKC2GuiEntity;
 import com.techmafia.mcmods.KinetiCraft2.net.CommonPacketHandler;
 import com.techmafia.mcmods.KinetiCraft2.net.messages.DeviceUpdateMessage;
+import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -56,6 +57,7 @@ public abstract class KC2TileEntityBase extends TileCoFHBase implements IKC2GuiE
             ticksSinceLastUpdate++;
             if(ticksSinceLastUpdate >= ticksBetweenUpdates) {
                 sendUpdatePacket();
+                LogHelper.info("UPDATE");
                 ticksSinceLastUpdate = 0;
             }
         }

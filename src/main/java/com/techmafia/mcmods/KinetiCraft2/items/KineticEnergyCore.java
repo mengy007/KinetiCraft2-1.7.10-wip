@@ -1,6 +1,7 @@
 package com.techmafia.mcmods.KinetiCraft2.items;
 
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
+import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import com.techmafia.mcmods.KinetiCraft2.utility.NBTHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -11,8 +12,11 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
@@ -47,7 +51,7 @@ public class KineticEnergyCore extends KC2Item {
         this.damageFromOvercharge   = damageFromOvercharge;
         this.hasMultipleIcons       = true;
 
-        this.setMaxDamage(this.maxEnergy);
+        //this.setMaxDamage(this.maxEnergy);
     }
 
     public int getMaxExtract() { return this.maxExtract; }
@@ -101,7 +105,7 @@ public class KineticEnergyCore extends KC2Item {
             NBTHelper.setInteger(itemStack, "kineticEnergyStored", energyStored);
 
             // Set item damage
-            this.setDamage(itemStack, this.maxEnergy - energyStored);
+            //this.setDamage(itemStack, this.maxEnergy - energyStored);
         } else {
             // First swing!
             NBTHelper.setInteger(itemStack, "kineticEnergyStored", this.energyFromUsing);
@@ -127,13 +131,7 @@ public class KineticEnergyCore extends KC2Item {
         boolean isMoving = ep.getAIMoveSpeed() > 0.11f ? true : false;
         boolean isJumping = (ep.fallDistance > 0.0f) ? true : false;
         boolean energyGained = false;
-        int energyStored;
-
-        if (NBTHelper.hasTag(itemStack, "kineticEnergyStored")) {
-            energyStored = NBTHelper.getInt(itemStack, "kineticEnergyStored");
-        } else {
-            energyStored = 0;
-        }
+        int energyStored = getEnergyStored(itemStack);
 
         if ( ! world.isRemote)
         {
@@ -176,7 +174,13 @@ public class KineticEnergyCore extends KC2Item {
 
         prevDistanceWalkedModified = ep.distanceWalkedModified;
 
-        this.setDamage(itemStack, this.maxEnergy - energyStored);
+        //this.setDamage(itemStack, this.maxEnergy - energyStored);
+
+        // Set icon based on energy stored.
+        if (this.hasMultipleIcons) {
+            int level = (getEnergyStored(itemStack)) / (this.maxEnergy / 5);
+            // this.itemIcon = level > 5 ? this.icons[5] : level < 0 ? this.icons[0] : this.icons[level];
+        }
     }
 
     @Override
@@ -197,17 +201,33 @@ public class KineticEnergyCore extends KC2Item {
         }
     }
 
-    /**
-     * Gets an icon index based on an item's damage value
-     */
     @SideOnly(Side.CLIENT)
     @Override
-    public IIcon getIconFromDamage(int damage)
-    {
+    public IIcon getIcon(ItemStack itemStack, int pass) {
         if (this.hasMultipleIcons)
         {
-            int level = (this.maxEnergy - damage) / (this.maxEnergy / 5);
-            return level > 5 ? this.icons[5] : level < 0 ? this.icons[0] : this.icons[level];
+            int level = getEnergyStored(itemStack) / (this.maxEnergy / 6);
+            int iconIndex = level > 5 ? 5 : level < 0 ? 0 : level;
+
+            this.itemIcon = this.icons[iconIndex];
+
+            return this.icons[iconIndex];
+        }
+        else
+        {
+            return this.itemIcon;
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(ItemStack itemStack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
+        if (this.hasMultipleIcons)
+        {
+            int level = getEnergyStored(itemStack) / (this.maxEnergy / 6);
+            int iconIndex = level > 5 ? 5 : level < 0 ? 0 : level;
+
+            return this.icons[iconIndex];
         }
         else
         {
@@ -220,10 +240,30 @@ public class KineticEnergyCore extends KC2Item {
     {
         super.addInformation(itemStack, player, list, par4);
 
-        if (itemStack.stackTagCompound != null)
-        {
-            int energyStored = itemStack.stackTagCompound.getInteger("kineticEnergyStored");
-            list.add(EnumChatFormatting.GREEN + "" + energyStored + " / " + this.maxEnergy + " RF");
+        int energyStored = getEnergyStored(itemStack);
+        list.add(EnumChatFormatting.GREEN + "" + energyStored + " / " + this.maxEnergy + " RF");
+    }
+
+    /**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
+    {
+        if (!world.isRemote) {
+            int energyStored = getEnergyStored(itemStack);
+            player.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "" + energyStored + " / " + this.maxEnergy + " RF"));
+        }
+
+        return itemStack;
+    }
+
+    public static int getEnergyStored(ItemStack itemStack) {
+        if (itemStack.stackTagCompound != null) {
+            return itemStack.stackTagCompound.getInteger("kineticEnergyStored");
+        } else {
+            itemStack.stackTagCompound = new NBTTagCompound();
+
+            return 0;
         }
     }
 }

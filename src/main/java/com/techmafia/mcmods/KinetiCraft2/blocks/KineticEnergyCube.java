@@ -3,6 +3,7 @@ package com.techmafia.mcmods.KinetiCraft2.blocks;
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
+import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Created by Meng on 7/27/2015.
@@ -35,6 +37,18 @@ public class KineticEnergyCube extends KC2Block {
         this.maxCoreRows = maxCoreRows;
         this.maxCores = maxCoreCols * maxCoreRows;
         this.guiId = guiId;
+    }
+
+    public int getRenderType() {
+        return 0;
+    }
+
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+    public boolean renderAsNormalBlock() {
+        return false;
     }
 
     /**
@@ -71,6 +85,9 @@ public class KineticEnergyCube extends KC2Block {
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
     {
         int l = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        KineticEnergyCubeTileEntity tileEntity = (KineticEnergyCubeTileEntity)world.getTileEntity(x, y, z);
+
+        tileEntity.setFrontFace(l);
 
         if (l == 0)
         {
