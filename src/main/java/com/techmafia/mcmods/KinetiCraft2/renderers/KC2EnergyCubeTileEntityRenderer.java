@@ -15,14 +15,13 @@ import org.lwjgl.opengl.GL11;
  * Created by Meng on 7/31/2015.
  */
 public class KC2EnergyCubeTileEntityRenderer extends TileEntitySpecialRenderer {
-    private ResourceLocation textureFull = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCube.png");
-    private ResourceLocation textureFrame = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeFrame.png");
-    private ResourceLocation textureSide = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeSide.png");
-    private ResourceLocation textureBlack = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/black.png");
-    private ResourceLocation textureGray = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/gray.png");
-    private ResourceLocation[] textureStatus = new ResourceLocation[4];
-    private float pixel = 1f/16f;
-    private float texturePixel = 1f/32f;
+    protected ResourceLocation textureFull = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCube.png");
+    protected ResourceLocation textureFrame = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeFrame.png");
+    protected ResourceLocation textureSide = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/kineticEnergyCubeSide.png");
+    protected ResourceLocation textureBlack = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/black.png");
+    protected ResourceLocation textureGray = new ResourceLocation(Reference.MOD_NAME + ":textures/blocks/gray.png");
+    protected ResourceLocation[] textureStatus = new ResourceLocation[4];
+    protected float pixel = 1f/16f;
 
     // 0:NORTH, 1:EAST, 2:SOUTH, 3:WEST
     public static final int NORTHFACE   = 0;

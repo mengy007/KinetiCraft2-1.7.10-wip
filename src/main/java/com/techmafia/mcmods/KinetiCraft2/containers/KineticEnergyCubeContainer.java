@@ -13,10 +13,12 @@ import net.minecraft.item.ItemStack;
  */
 public class KineticEnergyCubeContainer extends Container {
     protected KineticEnergyCubeTileEntity _entity;
+    protected int slots;
 
-    public KineticEnergyCubeContainer(KineticEnergyCubeTileEntity entity, EntityPlayer player) {
+    public KineticEnergyCubeContainer(KineticEnergyCubeTileEntity entity, EntityPlayer player, int slots) {
         super();
         _entity = entity;
+        this.slots = slots;
         addSlots();
         bindPlayerInventory(player.inventory);
         _entity.beginUpdatingPlayer(player);
@@ -24,8 +26,9 @@ public class KineticEnergyCubeContainer extends Container {
 
     protected void addSlots() {
         int currentSlot = 0;
+        int rows = slots / 3;
 
-        for (int y = 0; y < 2; y++) {
+        for (int y = 0; y < rows; y++) {
             for (int x = 0; x < 3; x++) {
                 addSlotToContainer(new KineticEnergyCoreSlot(_entity, currentSlot++, 62 + (x * 18), 23 + (y * 18)));
             }

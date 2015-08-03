@@ -3,6 +3,7 @@ package com.techmafia.mcmods.KinetiCraft2.handlers;
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.containers.KineticEnergyCubeContainer;
 import com.techmafia.mcmods.KinetiCraft2.gui.GuiKineticEnergyCube;
+import com.techmafia.mcmods.KinetiCraft2.tileentities.HardenedKineticEnergyCubeTileEntity;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
 import com.techmafia.mcmods.KinetiCraft2.utility.LogHelper;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -26,7 +27,9 @@ public class KC2GuiHandler implements IGuiHandler {
             if (tileEntity instanceof KineticEnergyCubeTileEntity) {
                 switch (ID) {
                     case 0:
-                        return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer);
+                        return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 6);
+                    case 1:
+                        return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 9);
                 }
             }
         } else {
@@ -43,7 +46,9 @@ public class KC2GuiHandler implements IGuiHandler {
             if (tileEntity instanceof KineticEnergyCubeTileEntity) {
                 switch (ID) {
                     case 0:
-                        return new GuiKineticEnergyCube(new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer), (KineticEnergyCubeTileEntity) tileEntity);
+                        return new GuiKineticEnergyCube(new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 6), (KineticEnergyCubeTileEntity) tileEntity);
+                    case 1:
+                        return new GuiKineticEnergyCube(new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 9), (HardenedKineticEnergyCubeTileEntity) tileEntity);
                 }
             }
         } else {

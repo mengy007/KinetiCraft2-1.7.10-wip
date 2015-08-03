@@ -1,10 +1,7 @@
 package com.techmafia.mcmods.KinetiCraft2.init;
 
 import cofh.thermalfoundation.item.TFItems;
-import com.techmafia.mcmods.KinetiCraft2.blocks.KC2Block;
-import com.techmafia.mcmods.KinetiCraft2.blocks.KC2EnergyCube;
-import com.techmafia.mcmods.KinetiCraft2.blocks.KineticBlock;
-import com.techmafia.mcmods.KinetiCraft2.blocks.KineticEnergyCube;
+import com.techmafia.mcmods.KinetiCraft2.blocks.*;
 import com.techmafia.mcmods.KinetiCraft2.items.ItemBlockKC2;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -21,7 +18,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class KinetiCraft2Blocks {
     public static final KineticBlock kineticBlock = new KineticBlock();
     public static final KineticEnergyCube kineticEnergyCube = new KineticEnergyCube("kineticEnergyCube", Material.rock, 0.1f, 3, 1, 0);
-    public static final KineticEnergyCube hardenedKineticEnergyCube = new KineticEnergyCube("hardenedKineticEnergyCube", Material.rock, 0.2f, 3, 2, 1);
+    public static final KineticEnergyCube hardenedKineticEnergyCube = new HardenedKineticEnergyCube("hardenedKineticEnergyCube", Material.rock, 0.2f, 3, 2, 1);
     public static final KineticEnergyCube reinforcedKineticEnergyCube = new KineticEnergyCube("reinforcedKineticEnergyCube", Material.rock, 0.3f, 3, 3, 2);
     public static final KineticEnergyCube resonantKineticEnergyCube = new KineticEnergyCube("resonantKineticEnergyCube", Material.rock, 0.5f, 3, 5, 3);
 
@@ -47,6 +44,14 @@ public class KinetiCraft2Blocks {
                 " M ",
                 "C C",
                 'C', "ingotCopper",
+                'M', KinetiCraft2Items.kineticFrame,
+                'G', KinetiCraft2Items.kineticGear
+        }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(hardenedKineticEnergyCube, 1), new Object[]{
+                "CGC",
+                " M ",
+                "C C",
+                'C', "ingotInvar",
                 'M', KinetiCraft2Items.kineticFrame,
                 'G', KinetiCraft2Items.kineticGear
         }));
