@@ -8,7 +8,7 @@ guiScale:0
 particles:0
 bobView:true
 anaglyph3d:false
-advancedOpengl:false
+advancedOpengl:true
 maxFps:120
 fboEnable:true
 difficulty:0
@@ -31,8 +31,8 @@ advancedItemTooltips:false
 pauseOnLostFocus:true
 showCape:true
 touchscreen:false
-overrideWidth:0
-overrideHeight:0
+overrideWidth:1920
+overrideHeight:1080
 heldItemTooltips:true
 chatHeightFocused:1.0
 chatHeightUnfocused:0.44366196
