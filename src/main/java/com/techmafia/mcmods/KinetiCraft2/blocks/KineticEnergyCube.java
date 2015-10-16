@@ -3,6 +3,7 @@ package com.techmafia.mcmods.KinetiCraft2.blocks;
 import com.techmafia.mcmods.KinetiCraft2.KinetiCraft2;
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
+import com.techmafia.mcmods.KinetiCraft2.tileentities.base.EnergyCubeTileEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -83,7 +84,8 @@ public class KineticEnergyCube extends KC2Block {
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
     {
         int l = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-        KineticEnergyCubeTileEntity tileEntity = (KineticEnergyCubeTileEntity)world.getTileEntity(x, y, z);
+        //KineticEnergyCubeTileEntity tileEntity = (KineticEnergyCubeTileEntity)world.getTileEntity(x, y, z);
+        EnergyCubeTileEntity tileEntity = (EnergyCubeTileEntity)world.getTileEntity(x, y, z);
 
         tileEntity.setFrontFace(l);
 

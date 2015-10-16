@@ -2,6 +2,7 @@ package com.techmafia.mcmods.KinetiCraft2.gui;
 
 import com.techmafia.mcmods.KinetiCraft2.reference.Reference;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
+import com.techmafia.mcmods.KinetiCraft2.tileentities.base.EnergyCubeTileEntity;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 
@@ -9,9 +10,9 @@ import net.minecraft.util.ResourceLocation;
  * Created by Meng on 7/30/2015.
  */
 public class GuiKineticEnergyCube extends KC2GuiDeviceBase {
-    private KineticEnergyCubeTileEntity _entity;
+    private EnergyCubeTileEntity _entity;
 
-    public GuiKineticEnergyCube(Container container, KineticEnergyCubeTileEntity entity) {
+    public GuiKineticEnergyCube(Container container, EnergyCubeTileEntity entity) {
         super(container, entity);
 
         _entity = entity;

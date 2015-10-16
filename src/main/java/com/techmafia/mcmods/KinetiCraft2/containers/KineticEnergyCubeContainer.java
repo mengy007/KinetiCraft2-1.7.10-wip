@@ -2,6 +2,7 @@ package com.techmafia.mcmods.KinetiCraft2.containers;
 
 import com.techmafia.mcmods.KinetiCraft2.slots.KineticEnergyCoreSlot;
 import com.techmafia.mcmods.KinetiCraft2.tileentities.KineticEnergyCubeTileEntity;
+import com.techmafia.mcmods.KinetiCraft2.tileentities.base.EnergyCubeTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -12,10 +13,10 @@ import net.minecraft.item.ItemStack;
  * Created by myang on 7/30/15.
  */
 public class KineticEnergyCubeContainer extends Container {
-    protected KineticEnergyCubeTileEntity _entity;
+    protected EnergyCubeTileEntity _entity;
     protected int slots;
 
-    public KineticEnergyCubeContainer(KineticEnergyCubeTileEntity entity, EntityPlayer player, int slots) {
+    public KineticEnergyCubeContainer(EnergyCubeTileEntity entity, EntityPlayer player, int slots) {
         super();
         _entity = entity;
         this.slots = slots;

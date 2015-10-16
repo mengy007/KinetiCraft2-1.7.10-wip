@@ -27,7 +27,8 @@ public class KC2GuiHandler implements IGuiHandler {
             if (tileEntity instanceof KineticEnergyCubeTileEntity) {
                 switch (ID) {
                     case 0:
-                        return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 6);
+                        return new KineticEnergyCubeContainer(
+                                (KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 6);
                     case 1:
                         return new KineticEnergyCubeContainer((KineticEnergyCubeTileEntity) tileEntity, entityPlayer, 9);
                 }
