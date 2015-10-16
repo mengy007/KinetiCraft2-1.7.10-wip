@@ -22,7 +22,6 @@ Items
 
 Blocks
 ======
-
 . Kinetic Energy Cube
   . 4 cores
 . Hardened Kinetic Energy Cube
